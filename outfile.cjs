@@ -39861,7 +39861,8 @@ function renderEslint(rootDir, { needsTypeScript, needsPrettier }) {
   fs2.writeFileSync(packageJsonPath, JSON.stringify(updatedPkg, null, 2) + "\n", "utf-8");
   for (const [fileName, content] of Object.entries(files)) {
     const fullPath = path2.resolve(rootDir, fileName);
-    fs2.writeFileSync(fullPath, content, "utf-8");
+    if (!fileName.includes("prettierrc"))
+      fs2.writeFileSync(fullPath, content, "utf-8");
   }
 }
 
@@ -39961,7 +39962,11 @@ Scaffolding project in ${root}...`);
     render("config/pinia");
   }
   if (needsVitest) {
+    render("entry/vitest");
     render("config/vitest");
+  }
+  if (needsPrettier) {
+    render("config/prettier");
   }
   if (needsTypeScript) {
     render("config/typescript");
@@ -40095,10 +40100,8 @@ yargs_default(hideBin(process.argv)).command(
     if (!argv.name && argv._.length > 1) {
       argv.name = argv._[1];
     }
-    console.log(argv);
     console.log(process.stdout.isTTY && process.stdout.getColorDepth() > 8 ? gradientBanner : defaultBanner);
     console.log();
-    const cwd = process.cwd();
     const isFeatureFlagsUsed = typeof (argv.default ?? argv.ts ?? argv.router ?? argv.pinia ?? argv.vitest ?? argv.eslint) === "boolean";
     const answers = await inquirerPrompt(argv);
     initTemplate(answers);

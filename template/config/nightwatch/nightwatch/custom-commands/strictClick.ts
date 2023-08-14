@@ -13,6 +13,6 @@
 
 module.exports = {
   command: function (selector: string) {
-    return this.waitForElementVisible(selector).click(selector)
-  }
-}
+    return this.waitForElementVisible(selector).click(selector);
+  },
+};

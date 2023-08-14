@@ -35,10 +35,8 @@ yargs(hideBin(process.argv)).command(
     if (!argv.name && argv._.length > 1) {
       argv.name = argv._[1];
     }
-    console.log(argv);
     console.log(process.stdout.isTTY && process.stdout.getColorDepth() > 8 ? gradientBanner : defaultBanner);
     console.log();
-    const cwd = process.cwd();
 
     // if any of the feature flags is set, we would skip the feature prompts
     const isFeatureFlagsUsed =

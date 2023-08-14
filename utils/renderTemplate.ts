@@ -173,7 +173,12 @@ export async function initTemplate(argv: param) {
     render('config/pinia');
   }
   if (needsVitest) {
+    render('entry/vitest');
     render('config/vitest');
+  }
+
+  if (needsPrettier) {
+    render('config/prettier');
   }
 
   //Render tsconfigs

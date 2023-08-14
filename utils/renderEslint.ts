@@ -52,6 +52,6 @@ export function renderEslint(rootDir, { needsTypeScript, needsPrettier }) {
   // write to .eslintrc.cjs, .prettierrc.json, etc.
   for (const [fileName, content] of Object.entries(files)) {
     const fullPath = path.resolve(rootDir, fileName);
-    fs.writeFileSync(fullPath, content as string, 'utf-8');
+    if (!fileName.includes('prettierrc')) fs.writeFileSync(fullPath, content as string, 'utf-8');
   }
 }
