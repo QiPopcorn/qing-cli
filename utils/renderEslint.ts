@@ -3,7 +3,7 @@ import * as path from 'node:path';
 
 import type { Linter } from 'eslint';
 
-import createESLintConfig from '@vue/create-eslint-config';
+import { createESLintConfig } from './createESLintConfig';
 
 import { sortDependencies } from './sortDependencies';
 import { deepMerge } from './deepMerge';
@@ -23,14 +23,14 @@ export function renderEslint(rootDir, { needsTypeScript, needsPrettier }) {
     needsPrettier,
 
     additionalConfig,
-    additionalDependencies
+    additionalDependencies,
   });
 
   const scripts: Record<string, string> = {
     // Note that we reuse .gitignore here to avoid duplicating the configuration
     lint: needsTypeScript
       ? 'eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore'
-      : 'eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore'
+      : 'eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore',
   };
 
   // Theoretically, we could add Prettier without requring ESLint.
@@ -52,6 +52,6 @@ export function renderEslint(rootDir, { needsTypeScript, needsPrettier }) {
   // write to .eslintrc.cjs, .prettierrc.json, etc.
   for (const [fileName, content] of Object.entries(files)) {
     const fullPath = path.resolve(rootDir, fileName);
-    if (!fileName.includes('prettierrc')) fs.writeFileSync(fullPath, content as string, 'utf-8');
+    fs.writeFileSync(fullPath, content as string, 'utf-8');
   }
 }

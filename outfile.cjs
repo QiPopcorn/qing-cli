@@ -9,10 +9,6 @@ var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
 var __copyProps = (to, from3, except, desc) => {
   if (from3 && typeof from3 === "object" || typeof from3 === "function") {
     for (let key of __getOwnPropNames(from3))
@@ -10210,11 +10206,11 @@ var require_baseGetTag = __commonJS({
 // ../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/isObject.js
 var require_isObject = __commonJS({
   "../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/isObject.js"(exports, module2) {
-    function isObject3(value) {
+    function isObject2(value) {
       var type = typeof value;
       return value != null && (type == "object" || type == "function");
     }
-    module2.exports = isObject3;
+    module2.exports = isObject2;
   }
 });
 
@@ -10222,13 +10218,13 @@ var require_isObject = __commonJS({
 var require_isFunction2 = __commonJS({
   "../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/isFunction.js"(exports, module2) {
     var baseGetTag = require_baseGetTag();
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     var asyncTag = "[object AsyncFunction]";
     var funcTag = "[object Function]";
     var genTag = "[object GeneratorFunction]";
     var proxyTag = "[object Proxy]";
     function isFunction2(value) {
-      if (!isObject3(value)) {
+      if (!isObject2(value)) {
         return false;
       }
       var tag = baseGetTag(value);
@@ -10289,7 +10285,7 @@ var require_baseIsNative = __commonJS({
   "../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_baseIsNative.js"(exports, module2) {
     var isFunction2 = require_isFunction2();
     var isMasked = require_isMasked();
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     var toSource = require_toSource();
     var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
     var reIsHostCtor = /^\[object .+?Constructor\]$/;
@@ -10301,7 +10297,7 @@ var require_baseIsNative = __commonJS({
       "^" + funcToString.call(hasOwnProperty).replace(reRegExpChar, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"
     );
     function baseIsNative(value) {
-      if (!isObject3(value) || isMasked(value)) {
+      if (!isObject2(value) || isMasked(value)) {
         return false;
       }
       var pattern = isFunction2(value) ? reIsNative : reIsHostCtor;
@@ -10469,9 +10465,9 @@ var require_isIterateeCall = __commonJS({
     var eq = require_eq();
     var isArrayLike = require_isArrayLike2();
     var isIndex = require_isIndex();
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     function isIterateeCall(value, index, object) {
-      if (!isObject3(object)) {
+      if (!isObject2(object)) {
         return false;
       }
       var type = typeof index;
@@ -10716,13 +10712,13 @@ var require_nativeKeysIn = __commonJS({
 // ../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_baseKeysIn.js
 var require_baseKeysIn = __commonJS({
   "../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_baseKeysIn.js"(exports, module2) {
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     var isPrototype = require_isPrototype();
     var nativeKeysIn = require_nativeKeysIn();
     var objectProto = Object.prototype;
     var hasOwnProperty = objectProto.hasOwnProperty;
     function baseKeysIn(object) {
-      if (!isObject3(object)) {
+      if (!isObject2(object)) {
         return nativeKeysIn(object);
       }
       var isProto = isPrototype(object), result2 = [];
@@ -11820,13 +11816,13 @@ var require_initCloneByTag = __commonJS({
 // ../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_baseCreate.js
 var require_baseCreate = __commonJS({
   "../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_baseCreate.js"(exports, module2) {
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     var objectCreate = Object.create;
     var baseCreate = function() {
       function object() {
       }
       return function(proto2) {
-        if (!isObject3(proto2)) {
+        if (!isObject2(proto2)) {
           return {};
         }
         if (objectCreate) {
@@ -11926,7 +11922,7 @@ var require_baseClone = __commonJS({
     var isArray = require_isArray();
     var isBuffer = require_isBuffer();
     var isMap = require_isMap();
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     var isSet = require_isSet();
     var keys = require_keys();
     var keysIn = require_keysIn();
@@ -11970,7 +11966,7 @@ var require_baseClone = __commonJS({
       if (result2 !== void 0) {
         return result2;
       }
-      if (!isObject3(value)) {
+      if (!isObject2(value)) {
         return value;
       }
       var isArr = isArray(value);
@@ -12522,9 +12518,9 @@ var require_baseIsMatch = __commonJS({
 // ../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_isStrictComparable.js
 var require_isStrictComparable = __commonJS({
   "../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/_isStrictComparable.js"(exports, module2) {
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     function isStrictComparable(value) {
-      return value === value && !isObject3(value);
+      return value === value && !isObject2(value);
     }
     module2.exports = isStrictComparable;
   }
@@ -30449,10 +30445,10 @@ var require_baseSet = __commonJS({
     var assignValue = require_assignValue();
     var castPath = require_castPath();
     var isIndex = require_isIndex();
-    var isObject3 = require_isObject();
+    var isObject2 = require_isObject();
     var toKey = require_toKey();
     function baseSet(object, path4, value, customizer) {
-      if (!isObject3(object)) {
+      if (!isObject2(object)) {
         return object;
       }
       path4 = castPath(path4, object);
@@ -30466,7 +30462,7 @@ var require_baseSet = __commonJS({
           var objValue = nested[key];
           newValue = customizer ? customizer(objValue, key, nested) : void 0;
           if (newValue === void 0) {
-            newValue = isObject3(objValue) ? objValue : isIndex(path4[index + 1]) ? [] : {};
+            newValue = isObject2(objValue) ? objValue : isIndex(path4[index + 1]) ? [] : {};
           }
         }
         assignValue(nested, key, newValue);
@@ -31727,72 +31723,6 @@ var require_dist = __commonJS({
         return replacer(value, space, (value2) => stringify_1.toString(value2, space, next, key), key);
       };
     }
-  }
-});
-
-// ../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/package.json
-var require_package2 = __commonJS({
-  "../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/package.json"(exports, module2) {
-    module2.exports = {
-      name: "@vue/create-eslint-config",
-      version: "0.3.1",
-      description: "Utility to setup ESLint in Vue.js projects.",
-      type: "module",
-      main: "index.js",
-      bin: {
-        "create-eslint-config": "bin/create-eslint-config.js"
-      },
-      engines: {
-        node: "^16.14.0 || >= 18.0.0"
-      },
-      repository: {
-        type: "git",
-        url: "git+https://github.com/vuejs/create-eslint-config.git"
-      },
-      keywords: [
-        "vue",
-        "eslint",
-        "config"
-      ],
-      author: "Haoqun Jiang <haoqunjiang+npm@gmail.com>",
-      license: "MIT",
-      bugs: {
-        url: "https://github.com/vuejs/create-eslint-config/issues"
-      },
-      homepage: "https://github.com/vuejs/create-eslint-config#readme",
-      publishConfig: {
-        access: "public"
-      },
-      dependencies: {
-        enquirer: "^2.4.1",
-        "javascript-stringify": "^2.1.0",
-        kolorist: "^1.8.0"
-      },
-      devDependencies: {
-        "@rushstack/eslint-patch": "^1.3.2",
-        "@vue/eslint-config-airbnb": "^7.0.0",
-        "@vue/eslint-config-airbnb-with-typescript": "^7.0.0",
-        "@vue/eslint-config-prettier": "^8.0.0",
-        "@vue/eslint-config-standard": "^8.0.1",
-        "@vue/eslint-config-standard-with-typescript": "^8.0.0",
-        "@vue/eslint-config-typescript": "^11.0.3",
-        eslint: "^8.46.0",
-        "eslint-plugin-vue": "^9.16.1",
-        prettier: "^3.0.0",
-        standard: "^17.1.0",
-        typescript: "~5.1.6"
-      },
-      scripts: {
-        test: 'echo "Error: no test specified" && exit 1'
-      }
-    };
-  }
-});
-
-// ../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/versionMap.cjs
-var require_versionMap = __commonJS({
-  "../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/versionMap.cjs"(exports, module2) {
-    module2.exports = require_package2().devDependencies;
   }
 });
 
@@ -35102,10 +35032,10 @@ var previouslyVisitedConfigs = [];
 var shim2;
 function applyExtends(config, cwd, mergeExtends, _shim) {
   shim2 = _shim;
-  let defaultConfig2 = {};
+  let defaultConfig = {};
   if (Object.prototype.hasOwnProperty.call(config, "extends")) {
     if (typeof config.extends !== "string")
-      return defaultConfig2;
+      return defaultConfig;
     const isPath = /\.json|\..*rc$/.test(config.extends);
     let pathToDefault = null;
     if (!isPath) {
@@ -35119,12 +35049,12 @@ function applyExtends(config, cwd, mergeExtends, _shim) {
     }
     checkForCircularExtends(pathToDefault);
     previouslyVisitedConfigs.push(pathToDefault);
-    defaultConfig2 = isPath ? JSON.parse(shim2.readFileSync(pathToDefault, "utf8")) : require(config.extends);
+    defaultConfig = isPath ? JSON.parse(shim2.readFileSync(pathToDefault, "utf8")) : require(config.extends);
     delete config.extends;
-    defaultConfig2 = applyExtends(defaultConfig2, shim2.path.dirname(pathToDefault), mergeExtends, shim2);
+    defaultConfig = applyExtends(defaultConfig, shim2.path.dirname(pathToDefault), mergeExtends, shim2);
   }
   previouslyVisitedConfigs = [];
-  return mergeExtends ? mergeDeep(defaultConfig2, config) : Object.assign({}, defaultConfig2, config);
+  return mergeExtends ? mergeDeep(defaultConfig, config) : Object.assign({}, defaultConfig, config);
 }
 function checkForCircularExtends(cfgPath) {
   if (previouslyVisitedConfigs.indexOf(cfgPath) > -1) {
@@ -35136,12 +35066,12 @@ function getPathToDefaultConfig(cwd, pathToExtend) {
 }
 function mergeDeep(config1, config2) {
   const target = {};
-  function isObject3(obj) {
+  function isObject2(obj) {
     return obj && typeof obj === "object" && !Array.isArray(obj);
   }
   Object.assign(target, config1);
   for (const key of Object.keys(config2)) {
-    if (isObject3(config2[key]) && isObject3(target[key])) {
+    if (isObject2(config2[key]) && isObject2(target[key])) {
       target[key] = mergeDeep(config1[key], config2[key]);
     } else {
       target[key] = config2[key];
@@ -39635,113 +39565,115 @@ ${commandFor("lint")}
 var fs2 = __toESM(require("fs"), 1);
 var path2 = __toESM(require("path"), 1);
 
-// ../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/index.js
+// utils/createESLintConfig.ts
 var import_javascript_stringify = __toESM(require_dist(), 1);
-
-// ../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/templates/editorconfigs.js
-var editorconfigs_exports = {};
-__export(editorconfigs_exports, {
-  airbnb: () => airbnb,
-  standard: () => standard
-});
-var airbnb = `root = true
-
-[*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue}]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-max_line_length = 100
-trim_trailing_whitespace = true
-`;
-var standard = `root = true
-
-[*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue}]
-charset = utf-8
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
-`;
-
-// ../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/templates/prettierrcs.js
-var prettierrcs_exports = {};
-__export(prettierrcs_exports, {
-  airbnb: () => airbnb2,
-  default: () => defaultConfig,
-  standard: () => standard2
-});
-var defaultConfig = {
-  $schema: "https://json.schemastore.org/prettierrc",
-  semi: false,
-  tabWidth: 2,
-  singleQuote: true,
-  printWidth: 100,
-  trailingComma: "none"
+var editorconfigs = {
+  airbnb: `root = true
+    [*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue}]
+    charset = utf-8
+    end_of_line = lf
+    indent_size = 2
+    indent_style = space
+    insert_final_newline = true
+    max_line_length = 100
+    trim_trailing_whitespace = true
+    `,
+  standard: `root = true
+    [*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue}]
+    charset = utf-8
+    indent_size = 2
+    indent_style = space
+    insert_final_newline = true
+    trim_trailing_whitespace = true
+    `
 };
-var airbnb2 = {
-  $schema: "https://json.schemastore.org/prettierrc",
-  arrowParens: "always",
-  bracketSameLine: false,
-  bracketSpacing: true,
-  endOfLine: "lf",
-  jsxSingleQuote: false,
-  printWidth: 100,
-  proseWrap: "preserve",
-  quoteProps: "as-needed",
-  semi: true,
-  singleQuote: true,
-  tabWidth: 2,
-  trailingComma: "all",
-  useTabs: false
+var prettierrcs = {
+  default: {
+    $schema: "https://json.schemastore.org/prettierrc",
+    semi: true,
+    tabWidth: 2,
+    singleQuote: true,
+    printWidth: 100,
+    trailingComma: "all"
+  },
+  airbnb: {
+    $schema: "https://json.schemastore.org/prettierrc",
+    arrowParens: "always",
+    bracketSameLine: false,
+    bracketSpacing: true,
+    endOfLine: "lf",
+    jsxSingleQuote: false,
+    printWidth: 100,
+    proseWrap: "preserve",
+    quoteProps: "as-needed",
+    semi: true,
+    singleQuote: true,
+    tabWidth: 2,
+    trailingComma: "all",
+    useTabs: false
+  },
+  standard: {
+    $schema: "https://json.schemastore.org/prettierrc",
+    arrowParens: "always",
+    bracketSameLine: false,
+    bracketSpacing: true,
+    jsxSingleQuote: true,
+    proseWrap: "preserve",
+    quoteProps: "as-needed",
+    semi: false,
+    singleQuote: true,
+    tabWidth: 2,
+    trailingComma: "none",
+    useTabs: false
+  }
 };
-var standard2 = {
-  $schema: "https://json.schemastore.org/prettierrc",
-  arrowParens: "always",
-  bracketSameLine: false,
-  bracketSpacing: true,
-  jsxSingleQuote: true,
-  proseWrap: "preserve",
-  quoteProps: "as-needed",
-  semi: false,
-  singleQuote: true,
-  tabWidth: 2,
-  trailingComma: "none",
-  useTabs: false
+var versionMap = {
+  "@rushstack/eslint-patch": "^1.3.2",
+  "@vue/eslint-config-airbnb": "^7.0.0",
+  "@vue/eslint-config-airbnb-with-typescript": "^7.0.0",
+  "@vue/eslint-config-prettier": "^8.0.0",
+  "@vue/eslint-config-standard": "^8.0.1",
+  "@vue/eslint-config-standard-with-typescript": "^8.0.0",
+  "@vue/eslint-config-typescript": "^11.0.3",
+  eslint: "^8.46.0",
+  "eslint-plugin-vue": "^9.16.1",
+  prettier: "^3.0.0",
+  standard: "^17.1.0",
+  typescript: "~5.1.6"
 };
-
-// ../../node_modules/.pnpm/@vue+create-eslint-config@0.3.1/node_modules/@vue/create-eslint-config/index.js
-var import_versionMap = __toESM(require_versionMap(), 1);
 function stringifyJS(value, styleGuide) {
-  const result2 = (0, import_javascript_stringify.stringify)(value, (val, indent, stringify2, key) => {
-    if (key === "CREATE_ALIAS_SETTING_PLACEHOLDER") {
-      return `(${stringify2(val)})`;
-    }
-    return stringify2(val);
-  }, 2);
+  const result2 = (0, import_javascript_stringify.stringify)(
+    value,
+    (val, indent, stringify2, key) => {
+      if (key === "CREATE_ALIAS_SETTING_PLACEHOLDER") {
+        return `(${stringify2(val)})`;
+      }
+      return stringify2(val);
+    },
+    2
+  );
   return result2.replace(
     "CREATE_ALIAS_SETTING_PLACEHOLDER: ",
     `...require('@vue/eslint-config-${styleGuide}/createAliasSetting')`
   );
 }
-var isObject2 = (val) => val && typeof val === "object";
-var mergeArrayWithDedupe2 = (a, b) => Array.from(/* @__PURE__ */ new Set([...a, ...b]));
-function deepMerge2(target, obj) {
-  for (const key of Object.keys(obj)) {
-    const oldVal = target[key];
-    const newVal = obj[key];
-    if (Array.isArray(oldVal) && Array.isArray(newVal)) {
-      target[key] = mergeArrayWithDedupe2(oldVal, newVal);
-    } else if (isObject2(oldVal) && isObject2(newVal)) {
-      target[key] = deepMerge2(oldVal, newVal);
-    } else {
-      target[key] = newVal;
-    }
-  }
-  return target;
+function hehestringifyJS(value, styleGuide) {
+  const result2 = JSON.stringify(
+    value,
+    (key, val) => {
+      if (key === "CREATE_ALIAS_SETTING_PLACEHOLDER") {
+        return `(${val})`;
+      }
+      return val;
+    },
+    2
+  );
+  return result2.replace(
+    "CREATE_ALIAS_SETTING_PLACEHOLDER: ",
+    `...require('@vue/eslint-config-${styleGuide}/createAliasSetting')`
+  );
 }
-function createConfig({
+function createESLintConfig({
   vueVersion = "3.x",
   // '2.x' | '3.x' (TODO: 2.7 / vue-demi)
   styleGuide = "default",
@@ -39757,19 +39689,17 @@ function createConfig({
 }) {
   const pkg = { devDependencies: {} };
   const addDependency = (name) => {
-    pkg.devDependencies[name] = import_versionMap.default[name];
+    pkg.devDependencies[name] = versionMap[name];
   };
   addDependency("eslint");
   addDependency("eslint-plugin-vue");
-  if (styleGuide !== "default" || hasTypeScript || needsPrettier) {
-    addDependency("@rushstack/eslint-patch");
-  }
   const language = hasTypeScript ? "typescript" : "javascript";
   const eslintConfig = {
+    parserOptions: {
+      ecmaVersion: "latest"
+    },
     root: true,
-    extends: [
-      vueVersion.startsWith("2") ? "plugin:vue/essential" : "plugin:vue/vue3-essential"
-    ]
+    extends: [vueVersion.startsWith("2") ? "plugin:vue/essential" : "plugin:vue/vue3-essential"]
   };
   const addDependencyAndExtend = (name) => {
     addDependency(name);
@@ -39783,19 +39713,13 @@ function createConfig({
       eslintConfig.extends.push("eslint:recommended");
       addDependencyAndExtend("@vue/eslint-config-typescript");
       break;
-    case "airbnb-javascript":
-    case "standard-javascript":
-      addDependencyAndExtend(`@vue/eslint-config-${styleGuide}`);
-      break;
-    case "airbnb-typescript":
-    case "standard-typescript":
-      addDependencyAndExtend(`@vue/eslint-config-${styleGuide}-with-typescript`);
-      break;
     default:
-      throw new Error(`unexpected combination of styleGuide and language: ${styleGuide}-${language}`);
+      throw new Error(
+        `unexpected combination of styleGuide and language: ${styleGuide}-${language}`
+      );
   }
-  deepMerge2(pkg.devDependencies, additionalDependencies);
-  deepMerge2(eslintConfig, additionalConfig);
+  deepMerge(pkg.devDependencies, additionalDependencies);
+  deepMerge(eslintConfig, additionalConfig);
   if (needsPrettier) {
     addDependency("prettier");
     addDependency("@vue/eslint-config-prettier");
@@ -39806,20 +39730,18 @@ function createConfig({
   };
   if (styleGuide === "default") {
     files[".eslintrc.cjs"] += "/* eslint-env node */\n";
-    eslintConfig.parserOptions = {
-      ecmaVersion: "latest"
-    };
   }
   if (pkg.devDependencies["@rushstack/eslint-patch"]) {
     files[".eslintrc.cjs"] += "require('@rushstack/eslint-patch/modern-module-resolution')\n\n";
   }
+  console.log(hehestringifyJS(eslintConfig, styleGuide));
   files[".eslintrc.cjs"] += `module.exports = ${stringifyJS(eslintConfig, styleGuide)}
 `;
-  if (editorconfigs_exports[styleGuide]) {
-    files[".editorconfig"] = editorconfigs_exports[styleGuide];
+  if (editorconfigs[styleGuide]) {
+    files[".editorconfig"] = editorconfigs[styleGuide];
   }
   if (needsPrettier) {
-    files[".prettierrc.json"] = JSON.stringify(prettierrcs_exports[styleGuide], void 0, 2);
+    files[".prettierrc.json"] = JSON.stringify(prettierrcs[styleGuide], void 0, 2);
   }
   return {
     pkg,
@@ -39839,7 +39761,7 @@ var eslintDeps = package_default.devDependencies;
 function renderEslint(rootDir, { needsTypeScript, needsPrettier }) {
   const additionalConfig = {};
   const additionalDependencies = {};
-  const { pkg, files } = createConfig({
+  const { pkg, files } = createESLintConfig({
     vueVersion: "3.x",
     // we currently don't support other style guides
     styleGuide: "default",
@@ -39861,8 +39783,7 @@ function renderEslint(rootDir, { needsTypeScript, needsPrettier }) {
   fs2.writeFileSync(packageJsonPath, JSON.stringify(updatedPkg, null, 2) + "\n", "utf-8");
   for (const [fileName, content] of Object.entries(files)) {
     const fullPath = path2.resolve(rootDir, fileName);
-    if (!fileName.includes("prettierrc"))
-      fs2.writeFileSync(fullPath, content, "utf-8");
+    fs2.writeFileSync(fullPath, content, "utf-8");
   }
 }
 
