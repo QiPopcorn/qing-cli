@@ -41,11 +41,11 @@ await esbuild.build({
           const result = await resolve('inquirer/lib/inquirer.js', {
             importer,
             resolveDir,
-            kind: 'import-statement'
+            kind: 'import-statement',
           });
           return result;
         });
-      }
+      },
     },
     esbuildPluginLicense({
       thirdParty: {
@@ -56,12 +56,12 @@ await esbuild.build({
             // There's a bug in the plugin that it also includes the `create-vue` package itself
             const dependencies = allDependencies.filter((d) => d.packageJson.name !== 'create-vue');
             const licenseText =
-              `# create-vue core license\n\n` +
-              `create-vue is released under the MIT license:\n\n` +
               CORE_LICENSE +
               `\n## Licenses of bundled dependencies\n\n` +
               `The published create-vue artifact additionally contains code with the following licenses:\n` +
-              [...new Set(dependencies.map((dependency) => dependency.packageJson.license))].join(', ') +
+              [...new Set(dependencies.map((dependency) => dependency.packageJson.license))].join(
+                ', ',
+              ) +
               '\n\n' +
               `## Bundled dependencies\n\n` +
               dependencies
@@ -80,9 +80,9 @@ await esbuild.build({
                 .join('\n\n');
 
             return licenseText;
-          }
-        }
-      }
-    })
-  ]
+          },
+        },
+      },
+    }),
+  ],
 });
